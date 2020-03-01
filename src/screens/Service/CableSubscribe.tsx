@@ -61,6 +61,9 @@ const CableSubscribeScreen = props => {
       <Text primary sfregular size={SIZES.subtitle} margin={20}>
         Kindly Subscribe for your Cable TV
       </Text>
+      <Block flex={0.1} center middle margin={[60, 0, 0]}>
+          <ImageIcon name={props.navigation.state.params.data} style={{ width: 100, height: 100 }}/>
+        </Block>
       <Block
             paddingHorizontal={SIZES.base * 2}
             flex={false}

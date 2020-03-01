@@ -13,6 +13,7 @@ import {
 import { SIZES, COLORS } from "../../utils/theme";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { VendorContext } from '../../contex/vendor/vendorState'
+import { airtimeServices, dataSubscriptionServices, cableServices, electricityServices } from '../../data'
 
 
 const HomeScreen = ({ navigation }) => {
@@ -140,13 +141,13 @@ const HomeScreen = ({ navigation }) => {
         <Block paddingHorizontal={SIZES.padding} marginTop={SIZES.base * 4}>
           {!loading ? (
             <Block flex={false}>
-              <ServiceList service={getServiceType('AIRTIME')} category={'AIRTIME'} />
+              <ServiceList service={airtimeServices} category={'AIRTIME'} />
               <ServiceList
-                service={getServiceType('DATA')}
+                service={dataSubscriptionServices}
                 category={'DATA'}
               />
-              <ServiceList service={getServiceType('CABLETV')} category={'CABLETV'} />
-              <ServiceList service={getServiceType('ELECTRICITY')} category={'ELECTRICITY'} />
+              <ServiceList service={cableServices} category={'CABLETV'} />
+              <ServiceList service={electricityServices} category={'ELECTRICITY'} />
             </Block>
           ): <Text>Loading</Text>}
         </Block>

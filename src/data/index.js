@@ -478,22 +478,26 @@ export const airtimeServices = [
   {
     id: "airtime",
     name: "MTN",
-    icon: "mtn"
+    icon: "mtn",
+    screen: "AirtimeServiceScreen"
   },
   {
     id: "airtime",
     name: "Airtel",
-    icon: "airtel"
+    icon: "airtel",
+    screen: "AirtimeServiceScreen"
   },
   {
     id: "airtime",
     name: "GLO",
-    icon: "glo"
+    icon: "glo",
+    screen: "AirtimeServiceScreen"
   },
   {
     id: "airtime",
     name: "9Mobile",
-    icon: "mobile9"
+    icon: "mobile9",
+    screen: "AirtimeServiceScreen"
   }
 ];
 

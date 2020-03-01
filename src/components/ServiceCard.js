@@ -1,40 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { withNavigation } from "react-navigation";
 import { Button, Text, ImageIcon, Card } from "./";
 import { SIZES } from "../utils/theme";
-import { VendorContext } from '../contex/vendor/vendorState'
 
 const ServiceCard = props => {
-  const { navigation, item, style } = props;
-  const vendorContext = useContext(VendorContext)
-  const { getVariationDetails, setService } = vendorContext
-
-  const onSubmit = async () => {
-    if (item.item.variation) {
-
-    await getVariationDetails({ "serviceType": item.item.serviceType, "serviceName": item.item.serviceName})
-    }
-    setService(item.item)
-    if (item.item.verify) {
-      props.navigation.navigate("VerifyServiceScreen")
-    } else {
-      serviceScreen()
-    }
-  }
-
-  const serviceScreen = () => {
-    switch(item.item.serviceType) {
-      case "AIRTIME":
-        return props.navigation.navigate("AirtimeServiceScreen")
-      case "DATA":
-        return props.navigation.navigate("DataSubscribeScreen")
-      case "ELECTRICITY":
-        return props.navigation.navigate("ElectricitySubScribeScreen")
-      default: 
-        return ""
-    }
-  }
-  
+  const { navigation, name, icon, screen, style } = props;
+  console.log('screen', screen)
 
   return (
     <Button
@@ -46,12 +17,13 @@ const ServiceCard = props => {
       middle
       center
       padding
-      onPress={onSubmit}
+      onPress={() => navigation.navigate(screen, { data: icon })}
     >
-
-      
+      <Card padding={0}  radius={SIZES.cardRadius} center middle>
+        <ImageIcon name={icon} />
+      </Card>
       <Text center tertiary sfregular size={SIZES.small} height={SIZES.caption}>
-        {item.item.serviceName}
+        {name}
       </Text>
     </Button>
   );
